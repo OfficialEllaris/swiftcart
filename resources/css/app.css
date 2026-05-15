@@ -5,7 +5,39 @@
 @source '../**/*.blade.php';
 @source '../**/*.js';
 
-@theme {
-    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-        'Segoe UI Symbol', 'Noto Color Emoji';
+@plugin "daisyui";
+
+@plugin "daisyui/theme" {
+    name: "swiftcart";
+    default: true;
+    prefersdark: true;
+    color-scheme: "dark";
+    --color-base-100: oklch(23% 0.020 216.450);
+    --color-base-200: oklch(26% 0.020 232.250);
+    --color-base-300: oklch(28.4% 0.020 232.250);
+    --color-base-content: oklch(96% 0.007 247.896);
+    --color-primary: oklch(79% 0.190 152.300);
+    --color-primary-content: oklch(11.3% 0.302 155.200);
+    --color-secondary: oklch(11.3% 0.302 155.200);
+    --color-secondary-content: oklch(96% 0.007 247.896);
+    --color-accent: oklch(29% 0.020 238.880);
+    --color-accent-content: oklch(96% 0.007 247.896);
+    --color-neutral: oklch(20% 0.010 230.010);
+    --color-neutral-content: oklch(96% 0.007 247.896);
+    --color-info: oklch(71% 0.143 215.221);
+    --color-info-content: oklch(98% 0.019 200.873);
+    --color-success: oklch(69% 0.17 162.48);
+    --color-success-content: oklch(97% 0.021 166.113);
+    --color-warning: oklch(70% 0.213 47.604);
+    --color-warning-content: oklch(98% 0.016 73.684);
+    --color-error: oklch(54.2% 0.237 25.331);
+    --color-error-content: oklch(97% 0.013 17.38);
+    --radius-selector: 0.5rem;
+    --radius-field: 1rem;
+    --radius-box: 1rem;
+    --size-selector: 0.25rem;
+    --size-field: 0.25rem;
+    --border: 1.5px;
+    --depth: 1;
+    --noise: 0;
 }
