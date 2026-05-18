@@ -12,26 +12,39 @@
 
         </div>
 
-        <div class="w-[800px] flex flex-col gap-y-6">
+        <div class="w-[800px] space-y-4">
 
-            <div class="grid grid-cols-2 gap-4">
+            @if (session('feedback'))
+                <div class="alert alert-{{ session('feedback')['type'] }} alert-soft">
+                    {{ session('feedback')['message'] }}
+                </div>
+            @endif
 
+            <form wire:submit="login" class="flex flex-col gap-y-6">
 
-                <fieldset class="fieldset">
-                    <legend class="fieldset-legend">Email Address</legend>
-                    <input type="text" class="input w-full input-lg" placeholder="e.g. user@example.com" />
-                    <p class="label text-error">Optional</p>
-                </fieldset>
+                <div class="grid grid-cols-2 gap-4">
 
-                <fieldset class="fieldset">
-                    <legend class="fieldset-legend">Password</legend>
-                    <input type="password" class="input w-full input-lg" placeholder="********" />
-                    <p class="label text-error">Optional</p>
-                </fieldset>
+                    <fieldset class="fieldset">
+                        <legend class="fieldset-legend">Email Address</legend>
+                        <input type="text" wire:model="email_address" class="input w-full input-lg" placeholder="e.g. user@example.com" />
+                        @error('email_address')
+                            <p class="label text-error">{{ $message }}</p>
+                        @enderror
+                    </fieldset>
 
-            </div>
+                    <fieldset class="fieldset">
+                        <legend class="fieldset-legend">Password</legend>
+                        <input type="password" wire:model="password" class="input w-full input-lg" placeholder="********" />
+                        @error('password')
+                            <p class="label text-error">{{ $message }}</p>
+                        @enderror
+                    </fieldset>
 
-            <button class="btn btn-lg btn-primary">Login</button>
+                </div>
+
+                <button class="btn btn-lg btn-primary">Login</button>
+
+            </form>
 
         </div>
 
